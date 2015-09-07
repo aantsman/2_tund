@@ -1,5 +1,7 @@
 <?php
-
+//"" vahele input elemendi NAME
+	echo $_POST ["email"];
+	echo $_POST ["password"];
 	
 
 ?>
@@ -12,11 +14,12 @@
 
 	<body>
 		<h2>Login</h2>
-		<input type="text" placeholder="E-mail"> <br><br>
-		<input type="password" placeholder="password">
-		<br><br>
-		<input type="submit" value="Log in">
+		<form action="user_form.php" method="post">
+		<input name="email" type="text" placeholder="E-mail"> <br><br>
+		<input name="password" type="password" placeholder="password"><br><br>
 		
+		<input type="submit" value="Log in">
+		</form>
 		<h2>Create user</h2>
 		
 	</body>
