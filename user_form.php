@@ -1,6 +1,6 @@
 <?php
 //"" vahele input elemendi NAME
-	//echo $_POST ["email"];
+echo $_POST ["email"];
 	//echo $_POST ["password"];
 	
 	$email_error= "";
@@ -22,6 +22,11 @@
 		//kontrollime kasutaja parooli, et see pole tühi.
 			if(empty($_POST ["password"])) {
 				$password_error= "See on kohustuslik väli";
+			} else {
+				//parool ei ole tühi, kontrollime pikkust
+				if(strlen($_POST ["password"]) < 6){
+					$password_error="Peab olema vähemalt 6 sümbolit pikk";
+				}
 			}
 	}
 	
@@ -36,8 +41,8 @@
 	<body>
 		<h2>Login</h2>
 		<form action="user_form.php" method="post">
-		<input name="email" type="text" placeholder="E-mail"> <?php echo $email_error; ?> <br><br>
-		<input name="password" type="password" placeholder="password"> <?php echo $password_error; ?><br><br>
+		<input name="email" type="text" placeholder="E-mail">* <?php echo $email_error; ?> <br><br>
+		<input name="password" type="password" placeholder="password">* <?php echo $password_error; ?><br><br>
 		
 		<input type="submit" value="Log in">
 		</form>
